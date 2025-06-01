@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
-  
   "scripts": {
     "start": "node server",
     "dev": "nodemon server"
@@ -13,7 +12,9 @@
   "license": "ISC",
   "description": "Ecomate Mern Project",
   "dependencies": {
-    "express": "^5.0.0-beta.2"
+    "date-fns": "^4.1.0",
+    "express": "^5.0.0-beta.2",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
