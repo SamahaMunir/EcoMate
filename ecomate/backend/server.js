@@ -2,6 +2,8 @@
 import express from 'express'
 import path from 'path'
 import {logger} from './middleware/logger.js'
+import {errorHandler} from './middleware/errorHandler.js'
+import cookieParser from 'cookie-parser'
 import { fileURLToPath } from 'url'
 import rootRoutes from './routes/root.js'
 
@@ -15,6 +17,8 @@ const PORT = process.env.PORT || 3001
 app.use(logger)
 
 app.use(express.json())
+
+app.use(cookieParser())
 
 // Serve static files
 app.use('/', express.static(path.join(__dirname, 'public')))
@@ -32,5 +36,7 @@ app.use((req, res) => {
     res.type('txt').send('404 Not Found')
   }
 });
+
+app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`))
