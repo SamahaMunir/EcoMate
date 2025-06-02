@@ -1,14 +1,20 @@
 // server.js
 import express from 'express'
 import path from 'path'
+import {logger} from './middleware/logger.js'
 import { fileURLToPath } from 'url'
 import rootRoutes from './routes/root.js'
+
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 3001
+
+app.use(logger)
+
+app.use(express.json())
 
 // Serve static files
 app.use('/', express.static(path.join(__dirname, 'public')))

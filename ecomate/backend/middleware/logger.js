@@ -25,9 +25,10 @@ const logEvents = async(message,logFileName)=>{
 
 const logger = (req,res,next)=>{
      logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, 'reqLog.log')
+     // it will get full very fast i can specify the our URL from where it is coming from i can add conditions specific request methods
     console.log(`${req.method} ${req.path}`)
     next()
 
 }
 
-module.exports = { logEvents, logger }
+export { logEvents, logger }
