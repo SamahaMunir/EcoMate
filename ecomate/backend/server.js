@@ -4,6 +4,8 @@ import path from 'path'
 import {logger} from './middleware/logger.js'
 import {errorHandler} from './middleware/errorHandler.js'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
+import { corsOptions } from './config/corsOptions.js'
 import { fileURLToPath } from 'url'
 import rootRoutes from './routes/root.js'
 
@@ -14,7 +16,15 @@ const __dirname = path.dirname(__filename)
 const app = express()
 const PORT = process.env.PORT || 3001
 
+// ✅ Custom request logging middleware
+app.use((req, res, next) => {
+  console.log('✅ Request received:', req.method, req.url);
+  next();
+});
+
 app.use(logger)
+
+app.use(cors(corsOptions))
 
 app.use(express.json())
 
@@ -25,6 +35,12 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 // Route handler
 app.use('/', rootRoutes)
+
+app.get('/error', (req, res) => {
+  // This will simulate an error and trigger the errorHandler
+  throw new Error('found error for testing');
+});
+
 
 app.use((req, res) => {
   res.status(404)
