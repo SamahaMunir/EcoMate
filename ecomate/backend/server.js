@@ -1,4 +1,5 @@
 // server.js
+import dotenv from 'dotenv'
 import express from 'express'
 import path from 'path'
 import {logger} from './middleware/logger.js'
@@ -15,12 +16,9 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 3001
+dotenv.config()
 
-// ✅ Custom request logging middleware
-app.use((req, res, next) => {
-  console.log('✅ Request received:', req.method, req.url);
-  next();
-});
+console.log(process.env.NODE_ENV)
 
 app.use(logger)
 
