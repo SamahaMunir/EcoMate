@@ -11,6 +11,7 @@ import mongoose from 'mongoose'
 import { corsOptions } from './config/corsOptions.js'
 import { fileURLToPath } from 'url'
 import rootRoutes from './routes/root.js'
+import userRoutes from './routes/userRoutes.js'
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -38,6 +39,8 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 // Route handler
 app.use('/', rootRoutes)
+
+app.use('/users', userRoutes)
 
 app.get('/error', (req, res) => {
   // This will simulate an error and trigger the errorHandler

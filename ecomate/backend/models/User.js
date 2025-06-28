@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
+import mongooseSequence from 'mongoose-sequence'; 
 
-const AutoIncrement = mongooseSequence(mongoose);
+const AutoIncrement = mongooseSequence(mongoose); 
 
 const userSchema = new mongoose.Schema({
  email: { 
