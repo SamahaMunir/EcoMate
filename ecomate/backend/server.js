@@ -12,6 +12,7 @@ import { corsOptions } from './config/corsOptions.js'
 import { fileURLToPath } from 'url'
 import rootRoutes from './routes/root.js'
 import userRoutes from './routes/userRoutes.js'
+import activityRoutes from './routes/activityRoutes.js'
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -41,6 +42,8 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', rootRoutes)
 
 app.use('/users', userRoutes)
+
+app.use('/activities', activityRoutes)
 
 app.get('/error', (req, res) => {
   // This will simulate an error and trigger the errorHandler
