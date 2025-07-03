@@ -6,7 +6,7 @@ const Public = () => (
   <section className="min-h-screen flex flex-col justify-center items-center bg-green-50 p-6">
     <header className="text-center mb-8">
       <h1 className="text-4xl font-bold text-gray-800">
-        Welcome to <span className="text-green-600">EcoMate</span> 🌿
+        Welcome to <span className="text-green-600">CarbonFit</span> 🌿
       </h1>
       <p className="mt-4 text-gray-600 max-w-md">
         Track your carbon footprint, log eco-friendly activities, and join challenges with your community!
