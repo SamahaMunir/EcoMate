@@ -1,25 +1,15 @@
 import Activity from '../models/Activity.js'
-import User from '../models/User.js'
 import asyncHandler from 'express-async-handler'
 
 // @desc Get all activities
 // @route GET /activities
 // @access Private
 const getAllActivities = asyncHandler(async (req, res) => {
-  const activities = await Activity.find().lean()
+  const activities = await Activity.find()
+    .populate('user', 'name email') // populate user with name & email
+    .lean();
 
-  if (!activities?.length) {
-    return res.status(400).json({ message: 'No activities found' })
-  }
-
-  const activitiesWithUser = await Promise.all(
-    activities.map(async (activity) => {
-      const user = await User.findById(activity.user).lean().exec()
-      return { ...activity, username: user?.name }
-    })
-  )
-
-  res.json(activitiesWithUser)
+  res.json(activities); // ✅ return populated activities only
 })
 
 // @desc Create new activity

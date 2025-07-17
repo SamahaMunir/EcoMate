@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 import seq from 'mongoose-sequence';
 
-
-
 const AutoIncrement = seq(mongoose);
 
 const activitySchema = new mongoose.Schema({
