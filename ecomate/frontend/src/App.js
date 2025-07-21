@@ -6,6 +6,10 @@ import DashLayout from "./components/DashLayout";
 import Welcome from "./features/auth/Welcome";
 import ActivitiesList from "./features/activities/ActivitiesList";  
 import UsersList from "./features/users/UsersList";
+import EditActivity from "./features/activities/EditActivity";
+import EditUser from "./features/users/EditUser";
+import NewActivity from "./features/activities/NewActivity";
+import NewUserForm from "./features/users/NewUserForm";
 function App() {
   return (
      <Routes>
@@ -16,14 +20,17 @@ function App() {
 
        <Route index element={<Welcome />} />
 
-       <Route path="activities">
-        <Route index element={<ActivitiesList />} />
-       </Route>
-
        <Route path="users">
         <Route index element={<UsersList />} />
+        <Route path=":id" element={<EditUser />} />
+        <Route path="new" element={<NewUserForm />} />
        </Route>
       
+       <Route path="activities">
+        <Route index element={<ActivitiesList />} />
+        <Route path=":id" element={<EditActivity />} />
+        <Route path="new" element={<NewActivity />} />
+       </Route>
       
       </Route>{/* end of dash route */}
  

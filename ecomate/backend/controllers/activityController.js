@@ -10,7 +10,7 @@ const getAllActivities = asyncHandler(async (req, res) => {
     .lean();
 
   res.json(activities); // ✅ return populated activities only
-})
+}) 
 
 // @desc Create new activity
 // @route POST /activities

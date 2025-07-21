@@ -6,12 +6,12 @@ A step-by-step checklist to build the EcoMate MERN application.
 
 ## 🔧 Phase 1: Setup & Authentication
 
-- [ ] Initialize backend with Express
-- [ ] Connect to MongoDB with Mongoose
-- [ ] Create `User` model/schema
-- [ ] Implement user registration API
+- [X] Initialize backend with Express
+- [X] Connect to MongoDB with Mongoose
+- [X] Create `User` model/schema
+- [X] Implement user registration API
 - [ ] Implement login API with JWT authentication
-- [ ] Hash passwords with bcrypt
+- [X] Hash passwords with bcrypt
 - [ ] Build frontend with React + Tailwind CSS
 - [ ] Create signup and login forms
 - [ ] Store and manage user session tokens
@@ -21,7 +21,7 @@ A step-by-step checklist to build the EcoMate MERN application.
 ## 📊 Phase 2: Carbon Tracker
 
 - [ ] Define carbon emission factors (e.g., car = 0.2kg/km)
-- [ ] Create `Activity` schema for logging
+- [X] Create `Activity` schema for logging
 - [ ] Build API to log activities
 - [ ] Create React form to log activities
 - [ ] Show user activity log
